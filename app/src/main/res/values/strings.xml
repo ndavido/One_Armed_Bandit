@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">One Armed Bandit</string>
+    <string name="Spin" />
+    <string name="ReelSpin">Spin</string>
 </resources>

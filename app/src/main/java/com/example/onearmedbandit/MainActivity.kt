@@ -8,6 +8,7 @@ package com.example.onearmedbandit
  * Class Group : SD3b
  */
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -25,6 +26,18 @@ class MainActivity : AppCompatActivity() {
 
         val spinReel: Button = findViewById(R.id.button)
         spinReel.setOnClickListener{ spinReel() }
+
+        val instructionButton = findViewById<Button>(R.id.second_act_btn)
+        instructionButton.setOnClickListener{
+            val intent = Intent(this,Instructions::class.java)
+            startActivity(intent)
+        }
+
+        val statisticsButton = findViewById<Button>(R.id.third_act_btn)
+        statisticsButton.setOnClickListener{
+            val intent = Intent(this,Statistics::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun spinReel() {
@@ -34,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         val reel3 = Reel(4)
 
         val reelSpin1 = reel1.spin()
-        val reelSpin2 = reel1.spin()
-        val reelSpin3 = reel1.spin()
+        val reelSpin2 = reel2.spin()
+        val reelSpin3 = reel3.spin()
 
         /** Find the ImageView in the layout */
         val reelImage1: ImageView = findViewById(R.id.imageView)
@@ -72,8 +85,6 @@ class MainActivity : AppCompatActivity() {
         reelImage1.contentDescription = reelSpin1.toString()
         reelImage2.contentDescription = reelSpin2.toString()
         reelImage3.contentDescription = reelSpin3.toString()
-
-
     }
 }
 

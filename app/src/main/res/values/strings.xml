@@ -2,4 +2,6 @@
     <string name="app_name">One Armed Bandit</string>
     <string name="Spin" />
     <string name="ReelSpin">Spin</string>
+    <string name="Instruction">Instructions</string>
+    <string name="Stats">Statistics</string>
 </resources>

@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Y3/Mobile Integration/OneArmedBandit/app/src/main/res/layout/activity_instructions.xml" value="0.264" />
         <entry key="..\:/Y3/Mobile Integration/OneArmedBandit/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Y3/Mobile Integration/OneArmedBandit/app/src/main/res/layout/activity_statistics.xml" value="0.264" />
       </map>
     </option>
   </component>

@@ -24,16 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val spinReel: Button = findViewById(R.id.button)
+        val spinReel: ImageView = findViewById(R.id.spinButton)
         spinReel.setOnClickListener{ spinReel() }
 
-        val instructionButton = findViewById<Button>(R.id.second_act_btn)
+        val instructionButton = findViewById<ImageView>(R.id.infoButton)
         instructionButton.setOnClickListener{
             val intent = Intent(this,Instructions::class.java)
             startActivity(intent)
         }
 
-        val statisticsButton = findViewById<Button>(R.id.third_act_btn)
+        val statisticsButton = findViewById<ImageView>(R.id.statsButton)
         statisticsButton.setOnClickListener{
             val intent = Intent(this,Statistics::class.java)
             startActivity(intent)

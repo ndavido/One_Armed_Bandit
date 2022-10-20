@@ -11,7 +11,6 @@ package com.example.onearmedbandit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 
 /**
@@ -24,18 +23,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /** Spin Button */
         val spinReel: ImageView = findViewById(R.id.spinButton)
-        spinReel.setOnClickListener{ spinReel() }
+        spinReel.setOnClickListener { spinReel() }
 
+        /** Button re-directing to the Game Instruction Page */
         val instructionButton = findViewById<ImageView>(R.id.infoButton)
-        instructionButton.setOnClickListener{
-            val intent = Intent(this,Instructions::class.java)
+        instructionButton.setOnClickListener {
+            val intent = Intent(this, Instructions::class.java)
             startActivity(intent)
         }
 
+        /** Button re-directing to the Game Statistics Page */
         val statisticsButton = findViewById<ImageView>(R.id.statsButton)
-        statisticsButton.setOnClickListener{
-            val intent = Intent(this,Statistics::class.java)
+        statisticsButton.setOnClickListener {
+            val intent = Intent(this, Statistics::class.java)
             startActivity(intent)
         }
     }
@@ -85,12 +87,19 @@ class MainActivity : AppCompatActivity() {
         reelImage1.contentDescription = reelSpin1.toString()
         reelImage2.contentDescription = reelSpin2.toString()
         reelImage3.contentDescription = reelSpin3.toString()
+
+        /** Update info card on whether play Won or should try again */
+        val winTry: ImageView = findViewById(R.id.winOrLose)
+        if (drawableResource1 == drawableResource2 && drawableResource1 == drawableResource3) {
+            winTry.setImageResource(R.drawable.youwin__1_)
+        } else {
+            winTry.setImageResource(R.drawable.tryagain)
+        }
     }
 }
 
-
-class Reel(private val numImages: Int){
-    fun spin(): Int{
+class Reel(private val numImages: Int) {
+    fun spin(): Int {
         return (1..numImages).random()
     }
 }

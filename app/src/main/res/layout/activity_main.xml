@@ -42,36 +42,40 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="455dp"
-        android:layout_height="828dp"
+        android:layout_width="450dp"
+        android:layout_height="758dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.989"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/slotmachine" />
-
-    <ImageView
-        android:id="@+id/spinButton"
-        android:layout_width="152dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginBottom="140dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/spin" />
 
     <ImageView
         android:id="@+id/infoButton"
         android:layout_width="71dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spinButton"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winOrLose"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/_176" />
+
+    <ImageView
+        android:id="@+id/spinButton"
+        android:layout_width="152dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winOrLose"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/spincolourized" />
 
     <ImageView
         android:id="@+id/statsButton"
@@ -79,9 +83,22 @@
         android:layout_height="91dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923"
+        app:layout_constraintTop_toBottomOf="@+id/winOrLose"
+        app:layout_constraintVertical_bias="0.96"
         app:srcCompat="@drawable/stats_button" />
+
+    <ImageView
+        android:id="@+id/winOrLose"
+        android:layout_width="366dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/blank" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

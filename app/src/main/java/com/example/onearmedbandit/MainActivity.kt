@@ -28,27 +28,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         /** Spin Button */
-//        val spinButton: ImageView = findViewById(R.id.spinButton)
-//        spinButton.setOnClickListener { spinReel() }
         binding.spinButton.setOnClickListener{ spinReel() }
 
         /** Button re-directing to the Game Instruction Page */
-//        val instructionButton = findViewById<ImageView>(R.id.infoButton)
-//        instructionButton.setOnClickListener {
-//            val intent = Intent(this, Instructions::class.java)
-//            startActivity(intent)
-//        }
         binding.infoButton.setOnClickListener{
             val intent = Intent(this, Instructions::class.java)
             startActivity(intent)
         }
 
         /** Button re-directing to the Game Statistics Page */
-//        val statisticsButton = findViewById<ImageView>(R.id.statsButton)
-//        statisticsButton.setOnClickListener {
-//            val intent = Intent(this, Statistics::class.java)
-//            startActivity(intent)
-//        }
         binding.statsButton.setOnClickListener {
             val intent = Intent(this, Statistics::class.java)
             startActivity(intent)
@@ -70,27 +58,11 @@ class MainActivity : AppCompatActivity() {
         val reelImage2: ImageView = binding.imageView2
         val reelImage3: ImageView = binding.imageView3
 
-        /** Determine which drawable resource ID to use based on the Reel spin */
-        val drawableResource1 = when (reelSpin1) {
-            1 -> R.drawable.strawberry_slot_images
-            2 -> R.drawable.apple_slot_images
-            3 -> R.drawable.kiwi_slot_images
-            else -> R.drawable.pineapple_slot_images
-        }
+        /** Using a function to set the drawable resource */
+        val drawableResource1 = reelImageSetter(reelSpin1)
+        val drawableResource2 = reelImageSetter(reelSpin2)
+        val drawableResource3 = reelImageSetter(reelSpin3)
 
-        val drawableResource2 = when (reelSpin2) {
-            1 -> R.drawable.strawberry_slot_images
-            2 -> R.drawable.apple_slot_images
-            3 -> R.drawable.kiwi_slot_images
-            else -> R.drawable.pineapple_slot_images
-        }
-
-        val drawableResource3 = when (reelSpin3) {
-            1 -> R.drawable.strawberry_slot_images
-            2 -> R.drawable.apple_slot_images
-            3 -> R.drawable.kiwi_slot_images
-            else -> R.drawable.pineapple_slot_images
-        }
         /** Update the ImageView with the correct drawable resource ID */
         reelImage1.setImageResource(drawableResource1)
         reelImage2.setImageResource(drawableResource2)
@@ -108,6 +80,17 @@ class MainActivity : AppCompatActivity() {
         } else {
             winTry.setImageResource(R.drawable.tryagain)
         }
+    }
+
+    /** Determine which drawable resource ID to use based on the Reel spin */
+    private fun reelImageSetter(reelSpin:Int): Int {
+        val drawableResource = when (reelSpin) {
+            1 -> R.drawable.strawberry_slot_images
+            2 -> R.drawable.apple_slot_images
+            3 -> R.drawable.kiwi_slot_images
+            else -> R.drawable.pineapple_slot_images
+        }
+        return drawableResource
     }
 }
 

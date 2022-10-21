@@ -101,4 +101,31 @@
         app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/blank" />
 
+    <TextView
+        android:id="@+id/totalSpins"
+        android:layout_width="131dp"
+        android:layout_height="49dp"
+        android:text="@string/TotalSpins"
+        app:layout_constraintEnd_toStartOf="@+id/totalWins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/totalWins"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:text="@string/TotalWins"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/winSpinRatio"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:text="@string/WinSpinRatio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/totalWins"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

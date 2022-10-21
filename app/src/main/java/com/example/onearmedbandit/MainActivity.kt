@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import com.example.onearmedbandit.databinding.ActivityMainBinding
+import kotlin.math.roundToInt
 
 /**
  * This activity allows the user to spin the reels in a slot machine
@@ -21,7 +22,6 @@ import com.example.onearmedbandit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,7 +43,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /** Initialize variables for statistics*/
+    var totalSpins = 0
+    var totalWins = 0
+    var winSpinPerc = 0
+
     private fun spinReel() {
+        totalSpins++
         /** Create a new Reel object with 4 images and spin it */
         val reel1 = Reel(4)
         val reel2 = Reel(4)
@@ -77,9 +83,17 @@ class MainActivity : AppCompatActivity() {
         val winTry: ImageView = findViewById(R.id.winOrLose)
         if (drawableResource1 == drawableResource2 && drawableResource1 == drawableResource3) {
             winTry.setImageResource(R.drawable.youwin__1_)
+            totalWins++
         } else {
             winTry.setImageResource(R.drawable.tryagain)
         }
+
+        winSpinPerc = ((totalWins.toDouble() / totalSpins.toDouble()) * 100).roundToInt()
+
+        /** Takes calculations and passes it through to the string */
+        binding.totalSpins.text = getString(R.string.TotalSpins, totalSpins)
+        binding.totalWins.text = getString(R.string.TotalWins, totalWins)
+        binding.winSpinRatio.text = "Win/Spin Percentage: $winSpinPerc%"
     }
 
     /** Determine which drawable resource ID to use based on the Reel spin */

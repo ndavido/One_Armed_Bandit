@@ -12,6 +12,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.example.onearmedbandit.databinding.ActivityMainBinding
 
 /**
  * This activity allows the user to spin the reels in a slot machine
@@ -19,24 +20,36 @@ import android.widget.ImageView
  */
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         /** Spin Button */
-        val spinReel: ImageView = findViewById(R.id.spinButton)
-        spinReel.setOnClickListener { spinReel() }
+//        val spinButton: ImageView = findViewById(R.id.spinButton)
+//        spinButton.setOnClickListener { spinReel() }
+        binding.spinButton.setOnClickListener{ spinReel() }
 
         /** Button re-directing to the Game Instruction Page */
-        val instructionButton = findViewById<ImageView>(R.id.infoButton)
-        instructionButton.setOnClickListener {
+//        val instructionButton = findViewById<ImageView>(R.id.infoButton)
+//        instructionButton.setOnClickListener {
+//            val intent = Intent(this, Instructions::class.java)
+//            startActivity(intent)
+//        }
+        binding.infoButton.setOnClickListener{
             val intent = Intent(this, Instructions::class.java)
             startActivity(intent)
         }
 
         /** Button re-directing to the Game Statistics Page */
-        val statisticsButton = findViewById<ImageView>(R.id.statsButton)
-        statisticsButton.setOnClickListener {
+//        val statisticsButton = findViewById<ImageView>(R.id.statsButton)
+//        statisticsButton.setOnClickListener {
+//            val intent = Intent(this, Statistics::class.java)
+//            startActivity(intent)
+//        }
+        binding.statsButton.setOnClickListener {
             val intent = Intent(this, Statistics::class.java)
             startActivity(intent)
         }
@@ -53,9 +66,9 @@ class MainActivity : AppCompatActivity() {
         val reelSpin3 = reel3.spin()
 
         /** Find the ImageView in the layout */
-        val reelImage1: ImageView = findViewById(R.id.imageView)
-        val reelImage2: ImageView = findViewById(R.id.imageView2)
-        val reelImage3: ImageView = findViewById(R.id.imageView3)
+        val reelImage1: ImageView = binding.imageView
+        val reelImage2: ImageView = binding.imageView2
+        val reelImage3: ImageView = binding.imageView3
 
         /** Determine which drawable resource ID to use based on the Reel spin */
         val drawableResource1 = when (reelSpin1) {
@@ -98,6 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+/** Creates a reel object */
 class Reel(private val numImages: Int) {
     fun spin(): Int {
         return (1..numImages).random()

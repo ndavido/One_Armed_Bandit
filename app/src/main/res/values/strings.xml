@@ -7,18 +7,18 @@
     <string name="TotalSpins">Total Spins: %d</string>
     <string name="TotalWins">Total Wins: %d</string>
     <string name="WinSpinRatio">Win/Spin Percentage: %d%%</string>
-    <string name="rulesTitle">One Armed Bandit</string>
-    <string name="rules1">Instruction Page</string>
-    <string name="rules2">1. Press spin to activate the slot machine and have the reels spinning.</string>
-    <string name="rules3">2. Get three similar images in a single spin to win.</string>
-    <string name="rules4">3. Press on the stats button to see your statistics :</string>
-    <string name="rules5">      - Total Spins</string>
-    <string name="rules6">      - Total Wins</string>
-    <string name="rules7">      - Win/Spin Percentage</string>
-    <string name="rules8">4. Each spin you will let know if you won or lost.</string>
-    <string name="rules9">      - On top of the slot machine a message will be displayed.</string>
-    <string name="rules10">      - Message will say one of the following :</string>
-    <string name="rules11">              -> You Win!</string>
-    <string name="rules12">              -> Try Again?</string>
-    <string name="rules13">Try your look and get as many wins in as little spins as possible.</string>
+    <string name="divider">===================</string>
+    <string name="rulesTitle"><b><i>Instruction Page</i></b></string>
+    <string name="rules1"><b>1.</b> Press spin to activate the slot machine and have the reels spinning.</string>
+    <string name="rules2"><b>2.</b> Get three similar images in a single spin to win.</string>
+    <string name="rules3"><b>3.</b> Press on the stats button to see your statistics :</string>
+    <string name="rules4"><b>---></b> Total Spins</string>
+    <string name="rules5"><b>---></b> Total Wins</string>
+    <string name="rules6"><b>---></b> Win/Spin Percentage</string>
+    <string name="rules7"><b>4.</b> Each spin you will let know if you won or lost.</string>
+    <string name="rules8"><b>---></b> On top of the slot machine a message will be displayed.</string>
+    <string name="rules9"><b>---></b> Message will say one of the following :</string>
+    <string name="rules10"><b>--------></b> You Win!</string>
+    <string name="rules11"><b>--------></b> Try Again?</string>
+    <string name="rules12">Try your look and get as many wins in as little spins as possible.</string>
 </resources>

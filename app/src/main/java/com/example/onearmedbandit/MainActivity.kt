@@ -11,9 +11,14 @@ package com.example.onearmedbandit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import com.example.onearmedbandit.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
+
+const val TOTAL_WINS = "totalWins"
+const val TOTAL_SPINS = "totalSpins"
+const val WIN_SPIN_PERC = "winSpinPerc"
 
 /**
  * This activity allows the user to spin the reels in a slot machine
@@ -27,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Log.d("DL","in Main Activity .. onCreate()")
+
         /** Spin Button */
         binding.spinButton.setOnClickListener{ spinReel() }
 
@@ -38,7 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         /** Button re-directing to the Game Statistics Page */
         binding.statsButton.setOnClickListener {
-            val intent = Intent(this, Statistics::class.java)
+            val intent = Intent(this, Statistics::class.java).apply {
+                putExtra(TOTAL_SPINS, totalSpins.toString())
+                putExtra(TOTAL_WINS, totalWins.toString())
+                putExtra(WIN_SPIN_PERC, winSpinPerc.toString())
+            }
             startActivity(intent)
         }
     }
@@ -56,8 +67,13 @@ class MainActivity : AppCompatActivity() {
         val reel3 = Reel(4)
 
         val reelSpin1 = reel1.spin()
+        Log.d("DL","Reel 1 = $reelSpin1")
+
         val reelSpin2 = reel2.spin()
+        Log.d("DL","Reel 2 = $reelSpin2")
+
         val reelSpin3 = reel3.spin()
+        Log.d("DL","Reel 3 = $reelSpin3")
 
         /** Find the ImageView in the layout */
         val reelImage1: ImageView = binding.imageView
@@ -88,12 +104,13 @@ class MainActivity : AppCompatActivity() {
             winTry.setImageResource(R.drawable.tryagain)
         }
 
+        /** Formula for the Win/Spin Percentage */
         winSpinPerc = ((totalWins.toDouble() / totalSpins.toDouble()) * 100).roundToInt()
 
         /** Takes calculations and passes it through to the string */
         binding.totalSpins.text = getString(R.string.TotalSpins, totalSpins)
         binding.totalWins.text = getString(R.string.TotalWins, totalWins)
-        binding.winSpinRatio.text = "Win/Spin Percentage: $winSpinPerc%"
+        binding.winSpinRatio.text = getString(R.string.WinSpinRatio, winSpinPerc)
     }
 
     /** Determine which drawable resource ID to use based on the Reel spin */

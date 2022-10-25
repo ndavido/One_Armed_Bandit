@@ -28,11 +28,11 @@ class Statistics : AppCompatActivity() {
         Log.d("DL","Win/Spin Percentage = $winSpinPerc")
 
         /** Capture the layout's TextView and set the string as its text */
-        val wins = findViewById<TextView>(R.id.textView).apply {
-            text = totalWins
-        }
-        val spins = findViewById<TextView>(R.id.textView2).apply {
+        val spins = findViewById<TextView>(R.id.textView).apply {
             text = totalSpins
+        }
+        val wins = findViewById<TextView>(R.id.textView2).apply {
+            text = totalWins
         }
         val winSpinP = findViewById<TextView>(R.id.textView3).apply {
             text = winSpinPerc

@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         Log.d("DL","in Main Activity .. onCreate()")
 
         /** Spin Button */
-        binding.spinButton.setOnClickListener{ spinReel() }
+        binding.spinButton.setOnClickListener{ spinReel()}
 
         /** Button re-directing to the Game Instruction Page */
         binding.infoButton.setOnClickListener{
@@ -46,9 +46,9 @@ class MainActivity : AppCompatActivity() {
         /** Button re-directing to the Game Statistics Page */
         binding.statsButton.setOnClickListener {
             val intent = Intent(this, Statistics::class.java).apply {
-                putExtra(TOTAL_SPINS, totalSpins.toString())
-                putExtra(TOTAL_WINS, totalWins.toString())
-                putExtra(WIN_SPIN_PERC, winSpinPerc.toString())
+                putExtra(TOTAL_SPINS, "Total Spins: $totalSpins")
+                putExtra(TOTAL_WINS, "Total Wins: $totalWins")
+                putExtra(WIN_SPIN_PERC, "Win/Spin Percentage: $winSpinPerc%")
             }
             startActivity(intent)
         }
@@ -106,11 +106,6 @@ class MainActivity : AppCompatActivity() {
 
         /** Formula for the Win/Spin Percentage */
         winSpinPerc = ((totalWins.toDouble() / totalSpins.toDouble()) * 100).roundToInt()
-
-        /** Takes calculations and passes it through to the string */
-        binding.totalSpins.text = getString(R.string.TotalSpins, totalSpins)
-        binding.totalWins.text = getString(R.string.TotalWins, totalWins)
-        binding.winSpinRatio.text = getString(R.string.WinSpinRatio, winSpinPerc)
     }
 
     /** Determine which drawable resource ID to use based on the Reel spin */
